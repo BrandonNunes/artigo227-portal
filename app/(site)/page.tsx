@@ -1,243 +1,315 @@
-/* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
-import { Header } from "./_components/Header";
-import { HeroSection } from "./_components/HeroSection";
-import { OqueFazemosSection } from "./_components/OqueFazemosSection";
-import { DepoimentsSection } from "./_components/DepoimentsSection";
-import { NextCoursesSection } from "./_components/NextCoursesSection";
+import { Button } from "@/src/components/Button";
+import { Footer } from "@/src/components/Footer";
+import { ArrowRight, ChevronRight, Eye, Gavel, Megaphone } from "lucide-react";
+
+const values = [
+  "Proteção",
+  "Educação",
+  "Saúde",
+  "Dignidade",
+  "Liberdade",
+  "Convivência Familiar",
+];
+
+const pillars = [
+  {
+    title: "Monitoramento",
+    description:
+      "Acompanhamento rigoroso de políticas públicas e orçamentos voltados para a infância e adolescência.",
+    icon: <Eye className="text-(--artigo227-blue)" />,
+    color: "primary",
+  },
+  {
+    title: "Incidência Política",
+    description:
+      "Pressão qualificada e articulação direta com legisladores para aprovação de leis protetivas.",
+    icon: <Gavel className="text-(--artigo227-orange)" />,
+    color: "orange",
+  },
+  {
+    title: "Mobilização Social",
+    description:
+      "Campanhas de conscientização que engajam a sociedade na defesa dos direitos fundamentais.",
+    icon: <Megaphone className="text-(--artigo227-yellow)" />,
+    color: "yellow",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans">
-      {/* Header */}
-      <Header />
+    <>
       {/* Hero Section */}
-      <HeroSection />
-      {/* O Que Fazemos */}
-      <OqueFazemosSection />
+      <section className="relative min-h-[calc(100vh-80px)] flex flex-col md:flex-row items-center overflow-hidden bg-white">
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:pl-20 lg:pl-32 py-12 md:py-0 z-10">
+          <div className="max-w-xl">
+            <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter text-(--artigo227-blue) mb-6">
+              Prioridade
+              <br />
+              <span className="relative inline-block text-black z-10">
+                <span className="relative z-10">Absoluta.</span>
+                <span
+                  style={{
+                    animation: "reveal 0.6s ease-out forwards",
+                    animationDelay: "0.3s",
+                    width: "0%",
+                  }}
+                  className="absolute bottom-1 left-0 h-[0.4em] bg-(--artigo227-yellow) w-full z-0 origin-left animate-reveal"
+                ></span>
+              </span>
+            </h1>
 
-      {/* Depoimentos */}
-      <DepoimentsSection />
+            <p className="font-body text-lg md:text-xl text-text-main/80 mb-10 leading-relaxed max-w-md">
+              Transformamos a defesa legal em narrativa. O artigo 227 não é
+              apenas uma lei, é um pacto de futuro para cada criança e
+              adolescente brasileiro.
+            </p>
 
-      {/* Próximos Cursos */}
-      <NextCoursesSection />
-
-      {/* Palestras Destacadas */}
-      <section
-        id="palestras-destacadas"
-        className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-green-500"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
-            — Palestras Destacadas —
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Como Fazer a Diferença",
-                speaker: "João Silva",
-                date: "18 de Abril, 14h",
-                image:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop",
-              },
-              {
-                title: "Inovação Social",
-                speaker: "Maria Fernandes",
-                date: "25 de Abril, 15h",
-                image:
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop",
-              },
-            ].map((palestra, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg flex items-center gap-4 sm:flex-row flex-col text-gray-700 hover:shadow-xl transition-shadow"
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <Button size="md">Junte-se a nós</Button>
+              <a
+                href="#atuacao"
+                className="group flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-text-muted hover:text-primary transition-colors px-4 py-2"
               >
-                <img
-                  src={palestra.image}
-                  alt={palestra.speaker}
-                  className="w-20 h-20 rounded-lg object-cover"
-                />
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                    {palestra.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-1">
-                    Com {palestra.speaker}
-                  </p>
-                  <p className="text-xs text-gray-500 mb-3">{palestra.date}</p>
-                </div>
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap">
-                  Inscrever-se
-                </button>
+                Conheça Nossa Atuação
+                <ArrowRight />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Image */}
+        <div className="w-full md:w-1/2 h-[50vh] md:h-full relative md:absolute md:right-0 md:top-0 clip-triangle-hero bg-surface group overflow-hidden">
+          <div className="absolute inset-0 bg-primary/10 z-10 mix-blend-multiply"></div>
+          <img
+            alt="Diverse group of children looking upwards towards a bright future"
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0sEGy3auatvpAU5-XVVFoK1dUoHVBYDdj4n5HyHbNOksLYG2JdeczaR8G1N59AdHSbPc2Wq3FeWCbDz6V6ZqPXhOpHpUTxY0KnhcRSWIAeruqrARJSmFC-7G1mT3ks_S9U4MdNos8cLYcGHEGY6WqXiIJwdh1qg9UBGQwA6q7_SJwVzdvda5ocdsq-2eAIS_6_czYNvmlwpqTWAdBaurqt3vRrVOvCvXdjFh-9hNQqFPHboNwpskqBOORTV9g4-0gQwW06i_jSsbZ"
+          />
+          <div className="absolute bottom-0 right-0 w-32 h-32 bg-accent clip-triangle-decoration opacity-80 mix-blend-multiply"></div>
+        </div>
+      </section>
+
+      {/* Infinite Ticker */}
+      <div className="bg-(--artigo227-blue) text-white py-4 overflow-hidden relative z-20 border-t-4 border-(--artigo227-yellow)">
+        <div className="flex whitespace-nowrap animate-ticker">
+          {[...values, ...values].map((value, idx) => (
+            <div
+              key={idx}
+              className={`flex items-center gap-12 px-6 ${idx === values.length ? "hidden" : ""}`}
+            >
+              <span className="font-display font-bold text-2xl tracking-widest uppercase">
+                {value}
+              </span>
+              <span className="text-(--artigo227-yellow) text-xs">▲</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Manifesto Quote Section */}
+      <section className="py-24 px-6 md:px-20 relative overflow-hidden bg-white">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-24">
+            <div className="md:w-1/3 pt-4 border-t-4 border-(--artigo227-blue)">
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-main leading-tight">
+                É dever da família, da sociedade e do Estado.
+              </h2>
+            </div>
+            <div className="md:w-2/3">
+              <p className="font-body text-xl md:text-2xl leading-relaxed text-text-main/90 indent-8 md:indent-12">
+                O artigo 227 da Constituição Federal determina que é dever
+                assegurar à criança, ao adolescente e ao jovem, com absoluta
+                prioridade, o direito à vida, à saúde, à alimentação, à
+                educação, ao lazer, à profissionalização, à cultura, à
+                dignidade, ao respeito, à liberdade e à convivência familiar e
+                comunitária, além de colocá-los a salvo de toda forma de
+                negligência, discriminação, exploração, violência, crueldade e
+                opressão.
+              </p>
+              <div className="mt-8 flex items-center gap-4">
+                <div className="h-0.5 w-12 bg-(--artigo227-orange)"></div>
+                <span className="font-display font-bold text-(--artigo227-blue) uppercase tracking-wider text-sm">
+                  Constituição Federal de 1988
+                </span>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Junte-se a Nós */}
-      <section id="junte-se-a-nos" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-blue-900 mb-4">
-            Junte-se a Nós!
-          </h2>
-          <p className="text-gray-600 mb-8">
-            Quer fazer a diferença? Torne-se um voluntário ou apoie nossa causa.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/voluntario"
-              className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors"
+      {/* Pillars Grid (Nossa Atuação) */}
+      <section
+        id="atuacao"
+        className="bg-gray-100 py-24 px-6 md:px-20 relative overflow-hidden"
+      >
+        {/* Decorative Background */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-white skew-x-12 -mr-32 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+            <div>
+              <h2 className="font-display font-bold text-4xl md:text-5xl text-text-main mb-4">
+                Nossa Atuação
+              </h2>
+              <p className="font-body text-text-muted text-lg max-w-xl">
+                Atuamos em frentes estratégicas para garantir que a lei saia do
+                papel e transforme a realidade.
+              </p>
+            </div>
+            <a
+              href="/oque-atuamos"
+              className="hidden md:flex items-center gap-2 font-display font-bold text-(--artigo227-blue) hover:text-(--artigo227-blue-hover) transition-colors uppercase tracking-wider text-sm"
             >
-              Seja Voluntário
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-            <Link
-              href="/doacao"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors"
-            >
-              Faça uma Doação
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
+              Ver todos os o que atuamos
+              <ArrowRight />
+            </a>
           </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pillars.map((pillar, idx) => {
+              const colorMap = {
+                primary: {
+                  icon: "text-(--artigo227-blue)",
+                  bg: "bg-(--artigo227-blue)/10",
+                },
+                orange: {
+                  icon: "text-(--artigo227-orange)",
+                  bg: "bg-(--artigo227-orange)/10",
+                },
+                yellow: {
+                  icon: "text-(--artigo227-yellow)",
+                  bg: "bg-(--artigo227-yellow)/10",
+                },
+              };
+              const colors = colorMap[pillar.color as keyof typeof colorMap];
+
+              return (
+                <div
+                  key={idx}
+                  className="group bg-white p-8 border border-gray-100 shadow-hard hover:shadow-hard-hover transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-surface clip-triangle-decoration opacity-50"></div>
+
+                  <div
+                    className={`w-12 h-12 ${colors.bg} ${colors.icon} flex items-center justify-center mb-6 rounded-sm`}
+                  >
+                    <span className="material-symbols-outlined text-3xl">
+                      {pillar.icon}
+                    </span>
+                  </div>
+
+                  <h3
+                    className={`font-display font-bold text-2xl text-text-main mb-3 group-hover:text-[${pillar.color}] transition-colors`}
+                  >
+                    {pillar.title}
+                  </h3>
+
+                  <p className="font-body text-text-muted leading-relaxed mb-6">
+                    {pillar.description}
+                  </p>
+
+                  <a
+                    href="#"
+                    className={`inline-flex ${colors.icon} items-center gap-1 text-sm font-bold uppercase tracking-wider group/link hover-text-[${pillar.color}]`}
+                  >
+                    Saiba Mais
+                    <ChevronRight
+                      className={`${colors.icon} group-hover/link:translate-x-1 transition-transform`}
+                    />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Manifesto Section */}
+      <section
+        id="valor"
+        className="py-24 px-6 md:px-20 relative overflow-hidden bg-white"
+      >
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="mb-12">
+            <span className="text-primary font-display font-bold uppercase tracking-widest text-sm mb-6 inline-block">
+              O Manifesto
+            </span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-text-main mb-8 leading-tight">
+              Por que defendemos o{" "}
+              <span className="text-primary">Artigo 227</span>
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            <p className="font-body text-xl text-text-muted leading-relaxed">
+              O Artigo 227 da Constituição Federal de 1988 estabelece que é
+              dever da família, da sociedade e do Estado assegurar à criança, ao
+              adolescente e ao jovem o direito à vida, à saúde, à alimentação, à
+              educação, ao lazer, à profissionalização, à cultura, à dignidade,
+              ao respeito, à liberdade e à convivência familiar e comunitária.
+            </p>
+
+            <p className="font-body text-xl text-text-muted leading-relaxed">
+              Nós acreditamos que estes não são apenas direitos no papel. São
+              compromissos que precisam ser vividos, implementados e garantidos
+              todos os dias para cada criança brasileira.
+            </p>
+
+            <p className="font-body text-xl text-text-muted leading-relaxed">
+              Por isto, o Coletivo Artigo 227 trabalha para transformar
+              princípios constitucionais em ações concretas, políticas públicas
+              efetivas e mudança social durável.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <Button size="lg">Conheça Nossa Estrutura</Button>
+          </div>
+        </div>
+
+        {/* Background watermark */}
+        <div className="absolute left-20 top-0 font-display font-bold text-[400px] leading-none text-surface select-none -z-10 opacity-60 pointer-events-none">
+          227
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-(--artigo227-blue) py-20 px-6 md:px-20 text-white relative overflow-hidden">
+        {/* Geometric Overlay */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-[-50%] left-[-10%] w-[1000px] h-[1000px] border border-white rotate-45"></div>
+          <div className="absolute bottom-[-50%] right-[-10%] w-[800px] h-[800px] border border-white rotate-12"></div>
+        </div>
+
+        <div className="max-w-[800px] mx-auto text-center relative z-10">
+          <h2 className="font-display font-bold text-3xl md:text-5xl mb-6">
+            Não deixe para depois.
+          </h2>
+          <p className="font-body text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Receba atualizações mensais sobre o status dos direitos da criança e
+            do adolescente no Brasil.
+          </p>
+
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Seu e-mail profissional"
+              className="flex-1 h-14 px-6 bg-white/10 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-accent focus:bg-white/20 rounded-sm font-body"
+            />
+            <button
+              type="submit"
+              className="h-14 px-8 bg-(--artigo227-yellow) text-black font-display font-bold uppercase tracking-wider hover:bg-white transition-colors shadow-hard rounded-sm whitespace-nowrap"
+            >
+              Inscrever
+            </button>
+          </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="bg-blue-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col items-center gap-6 text-sm sm:flex-row">
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <span>+55 85 9876-5432</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                <span>contato@exemplo.org</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Rua Exemplo, 123, São Paulo, SP</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href="#" className="hover:text-orange-400 transition-colors">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
-              <a href="#" className="hover:text-orange-400 transition-colors">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                </svg>
-              </a>
-              <a href="#" className="hover:text-orange-400 transition-colors">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.995 16.979c0 .451-.219.866-.569 1.108l-5.426 3.633c-.358.24-.812.24-1.17 0l-5.426-3.633c-.35-.242-.569-.657-.569-1.108V7.021c0-.451.219-.866.569-1.108l5.426-3.633c.358-.24.812-.24 1.17 0l5.426 3.633c.35.242.569.657.569 1.108v9.958z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-blue-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200">
-            <div className="flex gap-6">
-              <Link
-                href="/sobre"
-                className="hover:text-white transition-colors"
-              >
-                Sobre
-              </Link>
-              <Link
-                href="/projetos"
-                className="hover:text-white transition-colors"
-              >
-                Projetos
-              </Link>
-              <Link
-                href="/cursos"
-                className="hover:text-white transition-colors"
-              >
-                Cursos
-              </Link>
-              <Link href="/blog" className="hover:text-white transition-colors">
-                Blog
-              </Link>
-              <Link
-                href="/privacidade"
-                className="hover:text-white transition-colors"
-              >
-                Política de Privacidade
-              </Link>
-            </div>
-            <p>
-              &copy; {new Date().getFullYear()} Artigo 227. Todos os direitos
-              reservados.
-            </p>
-            <p>powered by Brandon Nunes </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+      <Footer />
+    </>
   );
 }
