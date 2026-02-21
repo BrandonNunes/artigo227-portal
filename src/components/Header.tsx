@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,11 +19,11 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-surface">
-      <div className="max-w-7xl mx-auto h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto sm:p6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 group cursor-pointer "
+          className="flex items-center gap-3 group cursor-pointer ml-4"
         >
           <img
             src="/logos/logo-artigo227.png"
@@ -58,10 +59,10 @@ export const Header = () => {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-(--artigo227-blue) p-2"
+          className="md:hidden text-(--artigo227-blue) p-2 cursor-pointer"
         >
           <span className="material-symbols-outlined text-3xl">
-            {mobileMenuOpen ? "close" : "menu"}
+            {mobileMenuOpen ? <X size={32} /> : <MenuIcon size={32} />}
           </span>
         </button>
       </div>
