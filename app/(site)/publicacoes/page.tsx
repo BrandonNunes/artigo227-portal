@@ -2,6 +2,7 @@
 
 import { Button } from "@/src/components/Button";
 import { Section, SectionHero } from "@/src/components/index";
+import { FORM_URL } from "@/src/utils/constants";
 import { useState } from "react";
 
 const publications = [
@@ -269,7 +270,14 @@ export default function Publicacoes() {
               placeholder="seu@email.com"
               className="flex-1 px-4 py-3 border border-primary/20 focus:border-primary focus:outline-none font-body"
             />
-            <Button size="md">Contate-nos</Button>
+            <Button
+              size="md"
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contate-nos
+            </Button>
           </div>
         </div>
       </Section>

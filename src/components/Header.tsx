@@ -4,6 +4,7 @@
 import { MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { FORM_URL } from "../utils/constants";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,6 +53,7 @@ export const Header = () => {
          duration-300 h-10 px-8 items-center justify-center text-white font-display 
          font-bold text-sm tracking-widest uppercase clip-triangle-btn pr-10 
          shadow-hard hover:shadow-hard-hover"
+          onClick={() => window.open(FORM_URL, "_blank", "noopener,noreferrer")}
         >
           <span>CONTATE-NOS</span>
         </button>

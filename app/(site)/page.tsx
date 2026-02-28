@@ -1,5 +1,6 @@
 import { Button } from "@/src/components/Button";
 import { Footer } from "@/src/components/Footer";
+import { FORM_URL } from "@/src/utils/constants";
 import { ArrowRight, ChevronRight, Eye, Gavel, Megaphone } from "lucide-react";
 
 const values = [
@@ -66,9 +67,17 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <Button size="md">Contate-nos</Button>
+              <Button
+                size="md"
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contate-nos
+              </Button>
               <a
-                href="#atuacao"
+                target="_blank"
+                href={FORM_URL}
                 className="group flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-text-muted hover:text-primary transition-colors px-4 py-2"
               >
                 Conheça Nossa Atuação

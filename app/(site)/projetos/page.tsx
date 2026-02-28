@@ -2,6 +2,7 @@
 
 import { Button } from "@/src/components/Button";
 import { Section, SectionHero } from "@/src/components/index";
+import { FORM_URL } from "@/src/utils/constants";
 import { useState } from "react";
 
 const projects = [
@@ -220,6 +221,8 @@ export default function Projetos() {
           <Button
             variant="outline"
             size="lg"
+            href={FORM_URL}
+            target="_blank"
             className="border-white text-white hover:bg-white hover:text-primary"
           >
             Contate-nos
