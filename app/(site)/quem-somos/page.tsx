@@ -1,62 +1,88 @@
 "use client";
 
 import { Button } from "@/src/components/Button";
-import { Card, Section, SectionHero } from "@/src/components/index";
+import { Card, Footer, Section, SectionHero } from "@/src/components/index";
+import {
+  ArrowLeft,
+  ArrowRight,
+  HandHeart,
+  Mountain,
+  ShieldCheck,
+  User,
+} from "lucide-react";
 import { useState } from "react";
 
 const timeline = [
   {
-    year: "2020",
-    title: "Fundação do Coletivo",
-    description:
-      "Em resposta aos desafios crescentes, unimos forças para criar uma frente unificada de defesa dos direitos constitucionais.",
+    year: "2018",
+    title: "Fundação do coletivo (OAB-RJ / seminário)",
+    description: "",
     position: "right",
   },
   {
-    year: "2021",
-    title: "O Primeiro Relatório",
-    description:
-      "Publicamos nosso primeiro relatório técnico analisando a implementação do Artigo 227 em todo o país.",
+    year: "2019-2020",
+    title: "Formações, palestras e ações de forma voluntária",
+    description: "",
     position: "left",
   },
   {
-    year: "2023",
-    title: "Expansão do Conselho",
-    description:
-      "Ampliamos nossa rede de especialistas e parceiros para ampliar o alcance de nossas ações.",
+    year: "2021",
+    title: "Expansão das parcerias\ne eventos online",
+    description: "",
+    position: "right",
+  },
+  {
+    year: "2022",
+    title: "Projeto piloto com município cearense",
+    description: "",
+    position: "left",
+  },
+  {
+    year: `2023-${new Date().getFullYear()}`,
+    title: "Consultorias e cursos em instituições\npúblicas e privadas",
+    description: "",
     position: "right",
   },
 ];
 
 const team = [
   {
-    name: "Ana Silva",
-    role: "Diretora Executiva",
-    background: "Liderança estratégica e relações institucionais.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD7s7-0C-_R59keuvaU23Hy3HEfJuw3W-v8IgXIaPRc-gXl1awCL0gBn3SlMGp9Tak2cjJedoVNuwZi2NcUypNCePmgHoaVMF0KVOGfAq6cW9MB0BEa-fsvFt22BbgbXi4JM7_iO8bKgQH8IBZzDhlldvZU71bM5x2iB4Jg6wtU3w3bMEazyZLONy6tUpzZo5DFY7-r2otZFHxcp3zWDBX5n3-e--EJEAxd7CKNA8GGnvj5eoeCXp7xCnY_ZScTdMUNLCLjcbhVeWJN",
+    name: "Jéssica Araújo",
+    role: "Diretora",
+    background: "",
+    image: "imagens/fotos_membros/Jessica_Araujo.jpeg",
   },
   {
-    name: "Carlos Santos",
-    role: "Coordenador de Projetos",
-    background: "Gestão de iniciativas e implementação de políticas públicas.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDh1_izOk-aWkvO6MWK2g2O3oFDJYCMyA-JgQb7QkjiJdLu2wF3mMWA0uAlSODcF6Qna8fWBslZqbMPftHkat-7i8-24NOceYucNLlf7tc3EcjHM1iAW2v8YftOjZ5DWTNWRJcHEth4lurd9ItN09KI66lRuic9SXOTR37LWRIpx0FU1ysgBVoyZyK4EzA5P8KZllZXH3entY1Av_5AjU34NoTaeme1wzZO3sQ-LI50c3wU9FzrqRfHYCUrS0ie4rXXD2PKZhXDWhUD",
+    name: "Marcia Barros",
+    role: "Psicóloga",
+    background: "",
+    image: "imagens/fotos_membros/Marcia_Barros.jpg",
   },
   {
-    name: "Marina Costa",
-    role: "Pesquisadora Sênior",
-    background:
-      "Análise de dados e produção de conhecimento sobre direitos de crianças.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBkpTyygbQlqWjoI-Ym71FnSf7a-TT89vdQwfZVVGjqsshd8RzMxHKiSW1g3XxBrG1i0Z7kaeEct-73-SWvsQd9jSdhsYuuxvomOHSsTsFKqh7Rv-Qi9n16NOePlDjBF3jkY-PqbEIkidGJu0aphzb3aNr4kr1zE2EalF2iNWABmZF15Abky4hhoHT2k_qX5rPcl6hhXmRJNRkkH71CU1OeA71S2que2nrP3_3AALtvoK2d92YuVrEmQ2lZOAvf4w0MhXb6tcvHGsiN",
+    name: "Laís Vitória",
+    role: "Financeiro",
+    background: "",
+    image: "imagens/fotos_membros/Lais_Vitoria.jpeg",
+  },
+
+  {
+    name: "Isabel Sousa",
+    role: "Advogada",
+    background: "",
+    image: "imagens/fotos_membros/Isabel.jpg",
   },
   {
-    name: "João Oliver",
-    role: "Advogado Constitucional",
-    background: "Assessoria jurídica e defesa de direitos constitucionais.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC2SgZtPpa89CTjy8NlbS_8rQLSZdIOkMpyEb37c4ehyc_oqjmFhv7UbzsIyMhoyPLDrzUSPn14bE2Evr3SvOREJxzaglRp9mZy3RBzOzJwK1vK3FZVbnPTp24UOTSDK6O-Aj34imp3HZPyYi-0lqmpMjfOVF0Op5Q7QxLXMT2ASGYl5HrVSqM7tl5LzmYdKwYLVTzrI5szPbOE7twNAYtax3H4L7cDNlkNLKpcxpbsLoVmSzpK38w3v4BmPSgpo0HAHZsAg1nV3kF9",
+    name: "Vanessa Melo",
+    role: "Psicóloga",
+    background: "",
+    image: "imagens/fotos_membros/Vanessa_Melo.jpg",
+  },
+
+  {
+    name: "Fabiana Moraes",
+    role: "Advogada",
+    background: "",
+    image: "imagens/fotos_membros/Fabiana_01.jpeg",
   },
 ];
 
@@ -76,10 +102,18 @@ export default function QuemSomos() {
           label="Institucional"
           title={
             <>
-              Quem <span className="text-primary">Somos</span>
+              Quem <span className="text-(--artigo227-blue)">Somos</span>
             </>
           }
-          subtitle="A estrutura por trás da defesa. Uma rede organizada para garantir a prioridade absoluta de crianças e adolescentes."
+          subtitle="O Coletivo Artigo 227 nasceu em 2018, a partir do encontro de três
+pesquisadoras engajadas na defesa dos direitos humanos de crianças e
+adolescentes.
+Nossa história começou durante um seminário na OAB-RJ, onde percebemos a
+necessidade de construir pontes entre a pesquisa, a prática profissional e a
+promoção de políticas públicas eficazes para a infância e juventude.
+Desde então, atuamos em todo o Brasil com formações, consultorias,
+publicações e projetos em rede, sempre com o propósito de fortalecer o Sistema
+de Garantia de Direitos e contribuir para uma sociedade mais justa e protetiva."
         />
       </Section>
 
@@ -90,14 +124,14 @@ export default function QuemSomos() {
             <h2 className="text-3xl font-display font-bold text-text-main text-center mb-4">
               Nossa Trajetória
             </h2>
-            <div className="w-24 h-1 bg-primary"></div>
+            <div className="w-24 h-1 bg-(--artigo227-blue)"></div>
           </div>
 
           {/* Vertical Timeline */}
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Central Line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-primary -translate-x-1/2"></div>
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-(--artigo227-blue) -translate-x-1/2"></div>
 
               {/* Timeline Items */}
               {timeline.map((item, idx) => (
@@ -108,7 +142,7 @@ export default function QuemSomos() {
                   }`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-5 h-5 bg-white border-4 border-primary rounded-full z-10 -translate-x-1/2"></div>
+                  <div className="absolute left-8 md:left-1/2 w-5 h-5 bg-white border-4 border-(--artigo227-blue) rounded-full z-10 -translate-x-1/2"></div>
 
                   {/* Empty Side */}
                   <div className="hidden md:block w-5/12"></div>
@@ -117,17 +151,17 @@ export default function QuemSomos() {
                   <div className="w-full pl-20 md:pl-0 md:w-5/12 relative">
                     {/* Pointer */}
                     {item.position === "right" && (
-                      <div className="hidden md:block absolute top-6 -left-3 w-4 h-6 bg-primary clip-triangle-left"></div>
+                      <div className="hidden md:block absolute top-6 -left-3 w-4 h-6 bg-(--artigo227-blue) clip-triangle-left"></div>
                     )}
                     {item.position === "left" && (
-                      <div className="hidden md:block absolute top-6 -right-3 w-4 h-6 bg-primary clip-triangle-right"></div>
+                      <div className="hidden md:block absolute top-6 -right-3 w-4 h-6 bg-(--artigo227-blue) clip-triangle-right"></div>
                     )}
 
                     <Card hover>
-                      <span className="text-4xl font-display font-bold text-primary/20 absolute top-2 right-4">
+                      <span className="text-4xl font-display font-bold text-(--artigo227-blue) absolute top-2 right-4">
                         {item.year}
                       </span>
-                      <h3 className="text-xl font-display font-bold text-primary mb-2">
+                      <h3 className="text-lg font-display font-bold text-black mb-2 mt-5">
                         {item.title}
                       </h3>
                       <p className="text-text-muted text-sm leading-relaxed">
@@ -146,11 +180,12 @@ export default function QuemSomos() {
       <Section bg="surface" py="py-24">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl font-display font-bold text-text-main mb-2">
+            <h2 className="text-4xl font-display font-bold  mb-2">
               Nosso Time
             </h2>
             <p className="text-text-muted font-body max-w-md">
-              Especialistas dedicados à construção de um futuro mais justo.
+              Quem faz parte do Artigo 227? Conheça as pessoas por trás do nosso
+              trabalho.
             </p>
           </div>
 
@@ -159,9 +194,9 @@ export default function QuemSomos() {
             <button
               onClick={() => setCurrentTeamPage((p) => (p > 0 ? p - 1 : 0))}
               disabled={currentTeamPage === 0}
-              className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 hover:bg-primary hover:text-white transition-colors disabled:opacity-50"
+              className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 hover:bg-(--artigo227-blue) hover:text-white transition-colors disabled:opacity-50"
             >
-              <span className="material-symbols-outlined">west</span>
+              <ArrowLeft size={20} />
             </button>
             <button
               onClick={() =>
@@ -172,9 +207,9 @@ export default function QuemSomos() {
               disabled={
                 currentTeamPage >= Math.ceil(team.length / itemsPerPage) - 1
               }
-              className="w-10 h-10 flex items-center justify-center bg-primary text-white border border-primary hover:bg-primary-dark transition-colors disabled:opacity-50 shadow-hard-sm"
+              className="w-10 h-10 flex items-center justify-center bg-(--artigo227-blue) text-white border border-(--artigo227-blue) hover:bg-(--artigo227-blue-hover) transition-colors disabled:opacity-50 shadow-hard-sm"
             >
-              <span className="material-symbols-outlined">east</span>
+              <ArrowRight size={20} />
             </button>
           </div>
         </div>
@@ -186,27 +221,25 @@ export default function QuemSomos() {
               key={idx}
               className="team-card group relative overflow-hidden bg-white shadow-hard cursor-pointer"
             >
-              <div className="aspect-square w-full bg-gray-200 relative overflow-hidden">
+              <div className="aspect-square w-full bg-gray-50 relative overflow-hidden">
                 <img
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"
+                  className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"
                   src={member.image}
                 />
               </div>
 
               {/* Static Name Tag */}
-              <div className="absolute bottom-0 left-0 w-full bg-primary p-3 z-10">
+              <div className="absolute bottom-0 left-0 w-full bg-(--artigo227-blue) p-3 z-10">
                 <h3 className="text-white font-display font-bold text-lg leading-none">
                   {member.name}
                 </h3>
               </div>
 
               {/* Hover Role Overlay */}
-              <div className="role-overlay absolute inset-0 bg-accent/95 z-20 translate-y-full transition-transform duration-300 ease-out flex flex-col justify-end p-6">
-                <div className="absolute top-4 right-4 text-text-main opacity-20">
-                  <span className="material-symbols-outlined text-5xl">
-                    person
-                  </span>
+              <div className="role-overlay absolute inset-0 bg-(--artigo227-yellow)/95 opacity-90 z-20 translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300 ease-out flex flex-col justify-end p-6">
+                <div className="absolute top-4 right-4 text-black opacity-20">
+                  <User size={48} />
                 </div>
                 <h4 className="text-text-main font-display font-bold text-xl mb-1">
                   {member.role}
@@ -221,25 +254,64 @@ export default function QuemSomos() {
         </div>
       </Section>
 
-      {/* CTA Section */}
-      <Section bg="primary" py="py-20">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Quer fazer parte da transformação?
-          </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Se você compartilha dos nossos valores e quer contribuir para
-            garantir os direitos das crianças, junte-se a nós.
-          </p>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-white text-white hover:bg-white hover:text-primary"
-          >
-            Entre em Contato
-          </Button>
+      {/* Objetivo Section */}
+      <Section bg="surface" py="py-24">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div>
+            <h2 className="text-4xl font-display font-bold  mb-2">Objetivo</h2>
+            <p className="text-lg font-body max-w-md">
+              Promover e disseminar os direitos humanos de crianças e
+              adolescentes conforme previsão no artigo 227 da Constituição
+              Federal de 1988 e os Objetivos do Desenvolvimento Sustentável.
+            </p>
+          </div>
         </div>
       </Section>
+      {/* Missão, Visão e Valores */}
+      <Section bg="surface" py="py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+          <div className="text-center">
+            <div className="flex justify-center mb-4 text-[#D97706]">
+              <HandHeart size={76} strokeWidth={2.2} />
+            </div>
+            <h3 className="text-4xl font-display font-bold mb-3">Missão:</h3>
+            <p className="text-text-main/90 text-2xl leading-relaxed font-body">
+              Promover os direitos de crianças e adolescentes através de
+              formações, assessorias e qualificação dos profissionais do Sistema
+              de Garantia de Direitos da Criança e do Adolescente e da
+              comunidade em geral.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="flex justify-center mb-4 text-(--artigo227-blue)">
+              <Mountain size={76} strokeWidth={2.2} />
+            </div>
+            <h3 className="text-4xl font-display font-bold mb-3">Visão:</h3>
+            <p className="text-text-main/90 text-2xl leading-relaxed font-body">
+              Ser referência na prestação de serviços e produtos relativos aos
+              direitos de crianças e adolescentes no âmbito local, regional e
+              nacional entre os profissionais do Sistema de Garantia de
+              Direitos.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="flex justify-center mb-4 text-(--artigo227-yellow)">
+              <ShieldCheck size={76} strokeWidth={2.2} />
+            </div>
+            <h3 className="text-4xl font-display font-bold mb-3">Valores:</h3>
+            <ul className="text-text-main/90 text-2xl leading-relaxed font-body space-y-1">
+              <li>Integridade;</li>
+              <li>Solidariedade;</li>
+              <li>Democracia;</li>
+              <li>Proteção Integral;</li>
+              <li>Equidade.</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+      <Footer />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { Instagram } from "lucide-react";
+
 export function Footer() {
   return (
     <footer className="bg-black text-white py-16 px-6 md:px-20 border-t border-white/10">
@@ -14,36 +16,31 @@ export function Footer() {
               />
             </div>
             <p className="font-body text-sm text-white/70">
-              Defendendo os direitos de crianças e adolescentes brasileiros.
+              Se a educação sozinha não transforma a sociedade, sem ela tampouco
+              a sociedade muda.
             </p>
           </div>
 
           {/* Contact & Social */}
           <div>
             <h4 className="font-display font-bold text-sm uppercase tracking-widest mb-6 text-white">
-              Contato
+              Entre em contato conosco
             </h4>
             <div className="space-y-4 mb-6">
               <p className="font-body text-sm text-white/70 flex items-start gap-2">
-                <span className="material-symbols-outlined text-base mt-0.5 text-accent">
-                  mail
-                </span>
                 <a
-                  href="mailto:contato@artigo227.org.br"
+                  href="mailto:artigo227@gmail.com"
                   className="hover:text-white transition-colors"
                 >
-                  contato@artigo227.org.br
+                  artigo227@gmail.com
                 </a>
               </p>
               <p className="font-body text-sm text-white/70 flex items-start gap-2">
-                <span className="material-symbols-outlined text-base mt-0.5 text-accent">
-                  phone
-                </span>
                 <a
                   href="tel:+551133334444"
                   className="hover:text-white transition-colors"
                 >
-                  (11) 3333-4444
+                  (85) 98205-3064
                 </a>
               </p>
             </div>
@@ -56,25 +53,7 @@ export function Footer() {
                 aria-label="Instagram"
               >
                 <span className="material-symbols-outlined text-base">
-                  link
-                </span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-accent transition-colors rounded-sm flex items-center justify-center"
-                aria-label="Twitter"
-              >
-                <span className="material-symbols-outlined text-base">
-                  link
-                </span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-accent transition-colors rounded-sm flex items-center justify-center"
-                aria-label="LinkedIn"
-              >
-                <span className="material-symbols-outlined text-base">
-                  link
+                  <Instagram size={20} />
                 </span>
               </a>
             </div>
@@ -89,7 +68,7 @@ export function Footer() {
               © {new Date().getFullYear()} Coletivo Artigo 227. Todos os
               direitos reservados.
             </p>
-            <div className="flex items-center gap-8">
+            {/* <div className="flex items-center gap-8">
               <a
                 href="#"
                 className="font-body text-xs text-white/70 hover:text-white transition-colors"
@@ -108,7 +87,7 @@ export function Footer() {
               >
                 Acessibilidade
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

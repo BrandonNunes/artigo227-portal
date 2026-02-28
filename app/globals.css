@@ -5,6 +5,35 @@
     @apply relative;
     clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
   }
+  .clip-triangle-left {
+    @apply relative;
+    clip-path: polygon(100% 0, 100% 100%, 0% 50%);
+  }
+
+  .clip-triangle-right {
+    @apply relative;
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  }
+  .shadow-hard {
+    @apply relative;
+    --tw-shadow: 4px 4px 0px 0px #0a59c7;
+    --tw-shadow-colored: 4px 4px 0px 0px var(--tw-shadow-color);
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow);
+  }
+  .shadow-hard-hover:hover {
+    @apply relative;
+    --tw-shadow: 4px 4px 0px 0px #0a59c7;
+    --tw-shadow-colored: 4px 4px 0px 0px var(--tw-shadow-color);
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow);
+  }
+  .role-overlay:hover {
+    @apply relative;
+    transform: translateY(0);
+  }
 }
 @layer utilities {
   @keyframes reveal {
@@ -61,7 +90,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* background: var(--background); */
+  /* color: var(--foreground); */
   font-family: Arial, Helvetica, sans-serif;
 }
