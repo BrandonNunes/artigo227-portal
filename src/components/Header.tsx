@@ -53,7 +53,7 @@ export const Header = () => {
          font-bold text-sm tracking-widest uppercase clip-triangle-btn pr-10 
          shadow-hard hover:shadow-hard-hover"
         >
-          <span>JUNTE-SE A NÓS</span>
+          <span>CONTATE-NOS</span>
         </button>
 
         {/* Mobile Menu Toggle */}
@@ -82,7 +82,7 @@ export const Header = () => {
               </Link>
             ))}
             <button className="w-full bg-(--artigo227-blue) text-white font-display font-bold text-sm py-3 mt-2 hover:bg-(--artigo227-blue-hover) transition-colors">
-              JUNTE-SE A NÓS
+              CONTATE-NOS
             </button>
           </nav>
         </div>

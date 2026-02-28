@@ -66,7 +66,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <Button size="md">Junte-se a nós</Button>
+              <Button size="md">Contate-nos</Button>
               <a
                 href="#atuacao"
                 className="group flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-text-muted hover:text-primary transition-colors px-4 py-2"
@@ -302,7 +302,7 @@ export default function Home() {
               type="submit"
               className="h-14 px-8 bg-(--artigo227-yellow) text-black font-display font-bold uppercase tracking-wider hover:bg-white transition-colors shadow-hard rounded-sm whitespace-nowrap"
             >
-              Inscrever
+              Contate-nos
             </button>
           </form>
         </div>

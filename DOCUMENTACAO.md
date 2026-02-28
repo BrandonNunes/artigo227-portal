@@ -75,7 +75,7 @@ npm start
 ### Button
 
 ```tsx
-<Button variant="primary" size="lg">Junte-se a nós</Button>
+<Button variant="primary" size="lg">Contate-nos</Button>
 <Button variant="outline" size="md">Saiba Mais</Button>
 ```
 

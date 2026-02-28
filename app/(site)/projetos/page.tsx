@@ -222,7 +222,7 @@ export default function Projetos() {
             size="lg"
             className="border-white text-white hover:bg-white hover:text-primary"
           >
-            Junte-se a Nós
+            Contate-nos
           </Button>
         </div>
       </Section>

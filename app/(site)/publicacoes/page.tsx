@@ -269,7 +269,7 @@ export default function Publicacoes() {
               placeholder="seu@email.com"
               className="flex-1 px-4 py-3 border border-primary/20 focus:border-primary focus:outline-none font-body"
             />
-            <Button size="md">Inscrever</Button>
+            <Button size="md">Contate-nos</Button>
           </div>
         </div>
       </Section>
