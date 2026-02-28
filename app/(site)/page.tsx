@@ -45,10 +45,10 @@ export default function Home() {
         <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:pl-20 lg:pl-32 py-12 md:py-0 z-10">
           <div className="max-w-xl">
             <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter text-(--artigo227-blue) mb-6">
-              Prioridade
+              Coletivo
               <br />
               <span className="relative inline-block text-black z-10">
-                <span className="relative z-10">Absoluta.</span>
+                <span className="relative z-10">Artigo227.</span>
                 <span
                   style={{
                     animation: "reveal 0.6s ease-out forwards",

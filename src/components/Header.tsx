@@ -14,8 +14,8 @@ export const Header = () => {
     { label: "Quem Somos", href: "/quem-somos" },
     { label: "O que Atuamos", href: "/oque-atuamos" },
     { label: "Projetos", href: "/projetos" },
-    { label: "Publicações", href: "/publicacoes" },
-    { label: "Parcerias", href: "/parcerias" },
+    { label: "Biblioteca", href: "/publicacoes" },
+    // { label: "Parcerias", href: "/parcerias" },
   ];
 
   return (
